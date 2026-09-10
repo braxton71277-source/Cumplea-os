@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Para una Amiga Especial 💙</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="floatingHearts"></div>
+  <header>
+    <div class="brand">💙 Un detalle para ti</div><button id="musicMini" class="mini">♫</button>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">✨ Un detalle hecho con cariño de Brayan y Valeria✨</p>
+      <h1>Para una <span>Amiga Especial</span> 💙</h1>
+      <p class="sub">Gracias por tu amistad, por las risas y por todos los momentos que nos das.</p>
+      <div class="stage">
+        <svg class="heartPhoto" viewBox="0 0 500 470" aria-label="Foto en forma de corazón">
+          <defs>
+            <clipPath id="clipHeart">
+              <path
+                d="M250 438C224 405 70 315 45 178 29 92 84 37 148 39c51 2 81 28 102 62 21-34 51-60 102-62 64-2 119 53 103 139-25 137-179 227-205 260Z" />
+            </clipPath>
+          </defs>
+          <image href="principal1.jpeg" x="50" y="38" width="400" height="402" preserveAspectRatio="xMidYMid slice"
+            clip-path="url(#clipHeart)" />
+          <path
+            d="M250 438C224 405 70 315 45 178 29 92 84 37 148 39c51 2 81 28 102 62 21-34 51-60 102-62 64-2 119 53 103 139-25 137-179 227-205 260Z"
+            class="heartLine" />
+        </svg>
+        <canvas id="sparkCanvas"></canvas>
+        <div class="groundGlow"></div>
+      </div>
+      <div class="buttons"><a class="btn main" href="recuerdos.html">Ver nuestra amistad <b>→</b></a>
+        <button
+          id="openMsg" class="btn alt">Abrir mensaje de Brayan 💌</button>
+        <button
+          id="openMsg2" class="btn alt">Abrir mensaje de Valeria 💌</button></div>
+      <div class="quote">
+        <div>♡</div>
+        <p>Los buenos amigos convierten los momentos normales en recuerdos inolvidables.</p>
+      </div>
+    </section>
+  </main>
+  <div class="player"><button id="play" class="play">♫</button>
+    <div><strong>Hazle click we</strong><small id="status">Pulsa para reproducir</small></div><input id="vol"
+      type="range" min="0" max="1" step="0.01" value="0.55">
+  </div>
+  <audio id="audio" loop>
+    <source src="tuamigo.mpeg" type="audio/mpeg">
+  </audio>
+  <div id="modal" class="modal">
+    <div class="modalCard"><button id="close" class="close">×</button>
+      <div class="bigHeart">💗</div>
+      <h2>mis palabras </h2>
+      <p>Gracias por ser una gran amiga, por escuchar, por apoyar y por hacer que muchos días sean más bonitos.</p>
+      <p>Espero que sigamos creando muchos recuerdos, compartiendo risas y acompañándonos en cada nueva etapa. ✨</p>
+      <p class="sign">Con mucho cariño de Brayan para Lucia💙</p>
+    </div>
+  </div>
+  <div id="modal2" class="modal">
+    <div class="modalCard2"><button id="close2" class="close">×</button>
+      <div class="bigHeart">💗</div>
+      <h2>FELIIIZZZ CUMPLEAÑOOOSS CHURAPA !!!🫶🏻</h2>
+      <p>
+Espero sigas con tu misma energía y ánimos que te caracterizan !! Sos un amoor de persona 🥰aunque solo viboreamos cuando se los merecen 😼 en fin !! Pásala lindoooo que nada arruine tu día especial , se te quiere muchoootee !!💗
+Besos para la cumpleañera 😽😽</p>
+      <p class="sign">Con mucho cariño de Valeria para Lucia💙</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

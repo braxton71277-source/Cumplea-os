@@ -1,0 +1,429 @@
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    font-family: Poppins, Arial, sans-serif;
+    color: #f5f5f5;
+    background: radial-gradient(circle at 50% 20%, #10143d 0, #05051a 38%, #02030d 100%);
+    overflow-x: hidden
+}
+
+body:before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(#fff 1px, transparent 1px), radial-gradient(#ff6bdc 1px, transparent 1px);
+    background-size: 150px 150px, 210px 210px;
+    background-position: 30px 20px, 90px 100px;
+    opacity: .22;
+    pointer-events: none
+}
+
+header {
+    height: 76px;
+    padding: 16px 4vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 20
+}
+
+.brand {
+    font-weight: 700;
+    text-shadow: 0 0 18px #429dff
+}
+
+.mini,
+.back {
+    border: 1px solid #ff45d4;
+    background: #120728cc;
+    color: #fff
+}
+
+.mini {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer
+}
+
+.back {
+    padding: 9px 18px;
+    border-radius: 999px;
+    text-decoration: none
+}
+
+.hero {
+    width: min(1050px, 92vw);
+    margin: auto;
+    text-align: center;
+    min-height: calc(100vh - 76px);
+    padding: 18px 0 120px
+}
+
+.eyebrow {
+    color: #ffc7f4;
+    text-shadow: 0 0 15px #ff42d0;
+    margin: 8px 0
+}
+
+.hero h1,
+.mem h1 {
+    font-size: clamp(2.5rem, 7vw, 5.6rem);
+    line-height: 1.05;
+    margin: 6px 0;
+    text-shadow: 0 0 18px #fff, 0 0 36px #429dff
+}
+
+.hero h1 span,
+.mem h1 span {
+    color: #fff
+}
+
+.sub {
+    max-width: 800px;
+    margin: 14px auto;
+    color: #c8c5d8;
+    font-size: 1.05rem
+}
+
+.stage {
+    position: relative;
+    width: min(710px, 94vw);
+    aspect-ratio: 1/.8;
+    margin: 8px auto 0
+}
+
+.heartPhoto {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 10px #ff29ca) drop-shadow(0 0 28px #8b48ff);
+    z-index: 2;
+    transform: translateZ(0);
+    will-change: transform
+}
+
+.heartLine {
+    fill: none;
+    stroke: #ff2bca;
+    stroke-width: 5;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 8px #ff2bca) drop-shadow(0 0 20px #ff2bca)
+}
+
+#sparkCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    pointer-events: none
+}
+
+.groundGlow {
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    bottom: 4%;
+    height: 16%;
+    background: radial-gradient(ellipse, #ff25c6aa, transparent 70%);
+    filter: blur(12px)
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap
+}
+
+.btn {
+    min-height: 54px;
+    padding: 0 28px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid #ff65dc;
+    cursor: pointer;
+    font-family: inherit
+}
+
+.btn.main {
+    background: linear-gradient(100deg, #ff24bfe8, #426bffe8);
+    box-shadow: 0 0 16px #ff29c780, 0 0 30px #6b56ff40
+}
+
+.btn.alt {
+    background: #050619dd
+}
+
+.quote {
+    width: min(690px, 94vw);
+    margin: 26px auto 0;
+    padding: 20px 26px;
+    border: 1px solid #ff39d488;
+    border-radius: 22px;
+    background: #08051cbb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px
+}
+
+.quote div {
+    font-size: 3rem;
+    color: #ff4bd6;
+    text-shadow: 0 0 20px #ff2bd0
+}
+
+.quote p {
+    font-size: 1.05rem;
+    color: #eee
+}
+
+.player {
+    position: fixed;
+    left: 18px;
+    bottom: 18px;
+    z-index: 30;
+    width: min(370px, calc(100vw - 36px));
+    display: grid;
+    grid-template-columns: 50px 1fr 100px;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 14px;
+    border: 1px solid #ff4bd47c;
+    border-radius: 18px;
+    background: #030419dd;
+    backdrop-filter: blur(14px)
+}
+
+.play {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    border: 1px solid #ff55d8aa;
+    background: #ff24c71a;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer
+}
+
+.player small {
+    display: block;
+    color: #bcb8cb;
+    margin-top: 2px
+}
+
+.player input {
+    accent-color: #ff42d0
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: #0009;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible
+}
+
+.modalCard {
+    position: relative;
+    width: min(640px, 92vw);
+    padding: 34px;
+    border: 1px solid #ff52d8;
+    border-radius: 24px;
+    background: linear-gradient(#18072dcc, #050518f5);
+    box-shadow: 0 0 35px #ff2fc74d
+}
+.modalCard2 {
+    position: relative;
+    width: min(640px, 92vw);
+    padding: 34px;
+    border: 1px solid #ff52d8;
+    border-radius: 24px;
+    background: linear-gradient(#da0ab7cc, #6d025ff5);
+    box-shadow: 0 0 35px #ff2fc74d
+}
+.close {
+    position: absolute;
+    right: 13px;
+    top: 11px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #ffffff30;
+    background: transparent;
+    color: #fff;
+    font-size: 22px
+}
+
+.bigHeart {
+    font-size: 44px
+}
+
+.modalCard h2,
+.letter h2 {
+    font-family: "Dancing Script", cursive;
+    font-size: 3rem;
+    color: #ff91e5;
+    margin: 8px 0;
+    text-shadow: 0 0 18px #ff44d2
+}
+
+.modalCard p,
+.letterCard p {
+    line-height: 1.8;
+    color: #e9e5f0
+}
+
+.sign {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.7rem;
+    color: #6cb8ff
+}
+
+.mem {
+    width: min(1180px, 92vw);
+    margin: auto;
+    text-align: center;
+    padding: 20px 0 110px
+}
+
+.mem h1 {
+    font-family: "Dancing Script", cursive
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 30px
+}
+
+.gallery figure {
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid #ff49d499;
+    border-radius: 18px;
+    background: #09061dbd;
+    box-shadow: 0 0 20px #ff32cb20
+}
+
+.gallery img {
+    width: 100%;
+    aspect-ratio: 1.2;
+    object-fit: cover;
+    display: block
+}
+
+.gallery figcaption {
+    padding: 12px;
+    color: #ddd8e7
+}
+
+.letter {
+    margin-top: 60px
+}
+
+.letterCard {
+    width: min(850px, 96vw);
+    margin: 25px auto;
+    padding: 38px;
+    text-align: left;
+    border: 1px solid #ff50d6aa;
+    border-radius: 22px;
+    background: #0a061ebf;
+    box-shadow: 0 0 30px #ff36cb1c
+}
+
+.float-heart {
+    position: fixed;
+    bottom: -30px;
+    left: var(--x);
+    font-size: var(--s);
+    color: #ff61d8;
+    animation: up var(--d) linear forwards;
+    pointer-events: none;
+    z-index: 1;
+    text-shadow: 0 0 10px #ff32c9
+}
+
+@keyframes up {
+    to {
+        transform: translateY(-115vh) scale(1.2) rotate(15deg);
+        opacity: 0
+    }
+}
+
+@media(max-width:700px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .stage {
+        aspect-ratio: 1/.95
+    }
+
+    .player {
+        grid-template-columns: 48px 1fr
+    }
+
+    .player input {
+        display: none
+    }
+
+    .btn {
+        width: 100%
+    }
+
+    .buttons {
+        width: 94vw
+    }
+
+    .quote {
+        flex-direction: column
+    }
+
+    .gallery figcaption {
+        font-size: .82rem
+    }
+}
+
+@media(max-width:430px) {
+    .gallery {
+        grid-template-columns: 1fr
+    }
+
+    .hero h1 {
+        font-size: 2.5rem
+    }
+
+    .heartPhoto {
+        width: 108%;
+        left: -4%
+    }
+}
